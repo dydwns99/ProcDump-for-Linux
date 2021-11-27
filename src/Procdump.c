@@ -1,6 +1,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License
-
+// hi my name is dydwns99. let's start our project!
 //--------------------------------------------------------------------
 //
 // This program monitors a process and generates core dumps in
