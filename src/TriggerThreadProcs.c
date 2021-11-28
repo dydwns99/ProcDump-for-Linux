@@ -15,7 +15,7 @@
 extern long HZ;                                // clock ticks per second
 extern pthread_mutex_t ptrace_mutex;
 
-void createwindow()
+int createwindow()
 {
 	Display *dpy;
 	int screen;
@@ -38,7 +38,7 @@ void createwindow()
 
 	while(1)
 	{
-		XNextEvent(dpy, $event);
+		XNextEvent(dpy, &event);
 	}
 	return 0;
 }
