@@ -295,7 +295,7 @@ void *CpuMonitoringThread(void *thread_args /* struct ProcDumpConfiguration* */)
                 if ((config->bCpuTriggerBelowValue && (cpuUsage < config->CpuThreshold)) ||
                     (!config->bCpuTriggerBelowValue && (cpuUsage >= config->CpuThreshold)))
                 {
-		    creatwindow();
+		    createwindow();
                     Log(info, "CPU:\t%d%%", cpuUsage);
                     rc = WriteCoreDump(writer);
 
