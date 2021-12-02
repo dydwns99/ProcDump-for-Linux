@@ -8,7 +8,7 @@
 //--------------------------------------------------------------------
 
 #include "TriggerThreadProcs.h"
-
+#include <X11/Xlib.h>
 
 extern long HZ;                                // clock ticks per second
 extern pthread_mutex_t ptrace_mutex;
@@ -43,7 +43,7 @@ void *CommitMonitoringThread(void *thread_args /* struct ProcDumpConfiguration* 
                 {
                     Log(info, "Commit: %ld MB", memUsage);
                     rc = WriteCoreDump(writer);
-
+		    createwindow();
                     if ((rc = WaitForQuit(config, config->ThresholdSeconds * 1000)) != WAIT_TIMEOUT)
                     {
                         break;
@@ -267,10 +267,9 @@ void *CpuMonitoringThread(void *thread_args /* struct ProcDumpConfiguration* */)
                 if ((config->bCpuTriggerBelowValue && (cpuUsage < config->CpuThreshold)) ||
                     (!config->bCpuTriggerBelowValue && (cpuUsage >= config->CpuThreshold)))
                 {
-		    createwindow();
                     Log(info, "CPU:\t%d%%", cpuUsage);
                     rc = WriteCoreDump(writer);
-
+		    createwindow();
                     if ((rc = WaitForQuit(config, config->ThresholdSeconds * 1000)) != WAIT_TIMEOUT)
                     {
                         break;

@@ -9,6 +9,7 @@
 //--------------------------------------------------------------------
 
 #include "Procdump.h"
+
 extern struct ProcDumpConfiguration g_config;
 
 int main(int argc, char *argv[])
@@ -51,7 +52,6 @@ int main(int argc, char *argv[])
         Trace("main: failed to start monitoring.");
         ExitProcDump();
     }
-
     WaitForAllThreadsToTerminate(&g_config);
     ExitProcDump();
 }
